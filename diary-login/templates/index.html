@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник программиста</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <img src="../static/img/logo.svg" alt="logo" width="30" height="30">
+        <ul class="main-list">
+        </ul>
+    </header>
+    <main class="main">
+        <h1 class="main__title">Дневник программиста</h1>
+        <div class="cards-list">
+            {% for card in cards %}
+            <div class="card">
+                <a href="/card/{{ card.id }}" class="card__link">
+                    <div class="card__img">
+                        <img src="../static/img/card-placeholder.png" alt="Card image">
+                    </div>
+                    <div class="card__text">
+                        <h2 class="card__title">{{ card.title }}</h2>
+                        <p class="card__subtitle">{{ card.subtitle }}</p>
+                        <p class="card__description">{{ card.text }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            <div class="card card--creat">
+                <a href="/create" class="creat__link"></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
